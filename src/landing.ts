@@ -28,6 +28,7 @@ export function renderLandingHtml(): string {
     <li>Qiko API: <span class="${qikoOk ? "ok" : "bad"}">${qikoOk ? "OK" : "missing QIKO_API_BASE_URL"}</span></li>
   </ul>
   <p>Webhook URL for Meta App Dashboard:<br /><code>${webhook}</code></p>
+  <p>Privacy Policy: <a href="/privacy-policy">/privacy-policy</a></p>
   <p>Full setup: see <code>WHATSAPP_INTEGRATION.md</code> in the repo.</p>
 </body>
 </html>`;
