@@ -1,0 +1,29 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: qiko-whatsapp-app
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: corepack enable && corepack prepare pnpm@10.28.0 --activate && pnpm install --frozen-lockfile && pnpm run build
+    startCommand: node dist/index.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: META_ACCESS_TOKEN
+        sync: false
+      - key: META_APP_SECRET
+        sync: false
+      - key: META_VERIFY_TOKEN
+        sync: false
+      - key: META_PHONE_NUMBER_ID
+        sync: false
+      - key: META_GRAPH_API_VERSION
+        value: v21.0
+      - key: QIKO_API_BASE_URL
+        sync: false
+      - key: QIKO_WEB_ORIGIN
+        value: https://stage-app.qiko.ai
+      - key: QIKO_WEB_APP_URL
+        value: https://stage-app.qiko.ai
